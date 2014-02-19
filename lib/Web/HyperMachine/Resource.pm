@@ -10,6 +10,9 @@ use Data::Dumper;
 
 my %uri;
 my %related;
+my %structure;
+
+## Package interface
 
 sub uri {
     my $package = shift;
@@ -39,6 +42,15 @@ sub relation {
 
     return $related{$package}{$related};
 }
+
+sub structure {
+    my $package = shift;
+    $structure{$package} = shift if @_;
+
+    return $structure{$package};
+}
+
+## Object interface
 
 sub init {
     my ($self, $args) = @_;
